@@ -108,9 +108,8 @@ def launch(
         )
         raise typer.Exit(1)
 
-
     subprocess.Popen(
-        f'start cmd /K "{data[project_name]["code_editor"]} {data[project_name]["folder_location"]}"', 
+        f'start cmd /K "{data[project_name]["code_editor"]} "{data[project_name]["folder_location"]}""', 
         shell=True
     )
 

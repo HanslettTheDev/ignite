@@ -1,14 +1,1 @@
-[
-    {
-        "ignite": {
-            "code_editor": "nvim",
-            "folder_location": "E:\\Software Development\\ignite"
-        }
-    },
-    {
-        "maximus": {
-            "code_editor": "nvim",
-            "folder_location": "E:\\Software Development\\Maximus"
-        }
-    }
-]
+[]

@@ -35,7 +35,7 @@ class Igniter:
         ignite_settings = {
             f"{new_project[0]}": {
                 "code_editor": CODE_EDITOR[int(new_project[1])],
-                "folder_location": new_project[2],
+                "folder_location": Path(new_project[2]),
             }
         } 
        
@@ -57,3 +57,8 @@ class Igniter:
         except ValueError:
             pass
         return isinstance(prompt, PROMPT_MESSAGES_DATA_TYPE[index])
+
+
+
+
+
