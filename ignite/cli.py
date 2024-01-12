@@ -22,6 +22,7 @@ def init(
         prompt="ignite database location?",
         ),
     ) -> None:
+    """Create an ignite database to store your settings"""
     
     app_init_error = config.init_app(db_path)
     if app_init_error:
@@ -63,6 +64,7 @@ def setup_igniter() -> Igniter:
 
 @app.command()
 def add() -> None:
+    """Add a new ignite setting"""
     igniter = setup_igniter()
     responses = []
     for i in range(0, len(PROMPT_MESSAGES)):
@@ -81,11 +83,30 @@ def add() -> None:
         fg=typer.colors.GREEN
     )
 
+
+@app.command(name="list")
+def list_all(project_name: Annotated[Optional[str], typer.Argument()] = None) -> None:
+    """List all ignite settings"""
+
+    igniter = setup_igniter()
+    ignite_settings = igniter.list_settings(project_name)
+
+    if len(ignite_settings) == 0:
+        typer.secho(
+            "There are no ignite settings in the database yet",
+            fg=typer.colors.RED
+        )
+        raise typer.Exit()
+
+    text = f"Ignite settings for project {project_name}" if project_name else "Ignite settings below >>>>\n"
+    typer.secho(text, fg=typer.colors.BLUE, bold=True)
+    typer.secho(ignite_settings, fg=typer.colors.BLUE)
+
 @app.command()
 def launch(
         project_name: Annotated[str, typer.Argument(help="A valid project name as found in your ignite settings")]
     ) -> None:
-
+    """Specify an ignite setting by name and launch the project"""
     import subprocess
 
     igniter = setup_igniter()

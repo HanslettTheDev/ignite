@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools >= 61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ignite"
+version = "1.0.0"
+description = "A Command line tool that speeds up the process of launching your projects"
+readme = "README.md"
+authors = [{name = "VENOM", email = "hanslettthedev@gmail.com"}]
+dependencies = [
+    "click>=8.1.7",
+    "colorama>=0.4.6",
+    "exceptiongroup>=1.2.0",
+    "iniconfig>=2.0.0",
+    "packaging>=23.2",
+    "pluggy>=1.3.0",
+    "tomli>=2.0.1",
+    "typer>=0.9.0",
+    "typing_extensions==4.9.0",
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["Code Editor", "Project management"]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [pyinstaller", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/hanslettthedev/ignite"
+
+[project.scripts]
+ignite = "ignite.__main__:main"
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "Bump version {old_version} ->{new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"ignite/__init__.py" = ['^__version__ = "{version}"$']

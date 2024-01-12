@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "nwb": {
+            "code_editor": "nvim",
+            "folder_location": "file:///E:/Software%20Development/nwb%20scheduler/desktop_client"
+        }
+    }
+]
