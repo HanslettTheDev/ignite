@@ -9,9 +9,9 @@ description = "A Command line tool that speeds up the process of launching your 
 readme = "README.md"
 authors = [{name = "VENOM", email = "hanslettthedev@gmail.com"}]
 dependencies = [
-    "click>=8.1.7",
-    "typer>=0.9.0",
-    "typing_extensions==4.9.0",
+    "click",
+    "typer",
+    "typing_extensions",
 ]
 license = { file = "LICENSE" }
 classifiers = [
