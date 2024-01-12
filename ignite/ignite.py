@@ -1,7 +1,7 @@
 """The main backend for ignite"""
 # ignite\ignite.py
 from pathlib import Path
-from typing import Any, Dict, NamedTuple
+from typing import Any, Dict, NamedTuple, List
 
 from ignite import (CODE_EDITOR, DB_READ_ERROR, PROMPT_MESSAGES_DATA_TYPE,  CODE_EDITOR
 )
@@ -35,7 +35,7 @@ class Igniter:
         ignite_settings = {
             f"{new_project[0]}": {
                 "code_editor": CODE_EDITOR[int(new_project[1])],
-                "folder_location": Path(new_project[2]),
+                "folder_location": Path(new_project[2]).as_uri(),
             }
         } 
        
@@ -50,6 +50,16 @@ class Igniter:
 
         return CurrentIgniteSettings(ignite_settings, write_new_data.error)
     
+    def list_settings(self, prompt: Any = None) -> List[Dict[str, Any]] | Dict[str, Any]:
+        """Return all the ignite settings that exists"""
+
+        data = self._db_handler.read_ignite_settings()
+        if prompt:
+            for d in data.ignite_settings:
+                if prompt in d.keys():
+                    return d
+        return data.ignite_settings
+
     @staticmethod
     def check_data(prompt: Any, index: int) -> bool:
         try:
