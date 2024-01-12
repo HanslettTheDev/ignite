@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ignitex"
-version = "1.0.1"
+version = "1.0.2"
 description = "A Command line tool that speeds up the process of launching your projects"
 readme = "README.md"
 authors = [{name = "VENOM", email = "hanslettthedev@gmail.com"}]
@@ -32,7 +32,7 @@ Homepage = "https://github.com/hanslettthedev/ignite"
 ignite = "ignite.__main__:main"
 
 [tool.bumpver]
-current_version = "1.0.1"
+current_version = "1.0.2"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "Bump version {old_version} ->{new_version}"
 commit = true
