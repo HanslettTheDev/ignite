@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+ignite/__init__.py
+ignite/__main__.py
+ignite/cli.py
+ignite/config.py
+ignite/database.py
+ignite/ignite.py
+ignitex.egg-info/PKG-INFO
+ignitex.egg-info/SOURCES.txt
+ignitex.egg-info/dependency_links.txt
+ignitex.egg-info/entry_points.txt
+ignitex.egg-info/requires.txt
+ignitex.egg-info/top_level.txt
+tests/test_ignite.py

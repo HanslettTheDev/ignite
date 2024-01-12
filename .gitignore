@@ -3,3 +3,4 @@ env
 .pytest_cache
 .json
 config.ini
+dist
