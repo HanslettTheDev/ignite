@@ -2,7 +2,7 @@
 # ignite/__init__.py
 
 __app_name__ = "ignite"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 (
     SUCCESS,
